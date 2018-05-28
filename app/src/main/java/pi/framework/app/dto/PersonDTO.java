@@ -3,16 +3,24 @@ package pi.framework.app.dto;
 import java.util.Objects;
 
 public class PersonDTO {
+    private Integer id;
     private String name;
     private String surname;
-    private String id;
     private String additionalInfo;
 
-    public PersonDTO(String id, String name, String surname, String additionalInfo) {
-        this.name = name;
-        this.surname = surname;
+    public PersonDTO(Integer id, String name, String surname, String additionalInfo) {
         this.id = id;
-        this.additionalInfo = additionalInfo;
+        this.name = name.trim();
+        this.surname = surname.trim();
+        this.additionalInfo = additionalInfo.trim();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -29,14 +37,6 @@ public class PersonDTO {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getAdditionalInfo() {
