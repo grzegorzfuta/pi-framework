@@ -5,12 +5,16 @@ import pi.framework.app.service.ImportantBusinessService;
 import pi.framework.core.context.ApplicationContext;
 import pi.framework.core.context.PiApplicationContext;
 
+import java.util.logging.Logger;
+
 public class PiDemoApplication {
+
+    private static Logger LOGGER = Logger.getLogger(PiDemoApplication.class.getName());
 
     private PiDemoApplication(){}
 
     public static void main(String[] args) {
-        System.out.println("PI framework demo application...");
+        LOGGER.info("PI framework demo application...");
 
         ApplicationContext applicationContext = new PiApplicationContext(PiDemoApplication.class);
 
@@ -18,7 +22,7 @@ public class PiDemoApplication {
 
         PersonDTO krzychoDTO = someImportantService.fetchImportantPerson("Krzycho");
 
-        System.out.println(krzychoDTO);
+        LOGGER.info(krzychoDTO.toString());
     }
 
 }
