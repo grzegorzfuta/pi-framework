@@ -1,6 +1,7 @@
 package pi.framework.app.persistence;
 
 import pi.framework.app.dto.PersonDTO;
+import pi.framework.core.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Component
 public class PersonsDatabaseMock implements ReadableStorage<PersonDTO> {
     private final List<PersonDTO> data = new ArrayList<>();
 
