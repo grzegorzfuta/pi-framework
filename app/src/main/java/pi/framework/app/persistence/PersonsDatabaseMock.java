@@ -1,6 +1,7 @@
 package pi.framework.app.persistence;
 
 import pi.framework.app.dto.PersonDTO;
+import pi.framework.core.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.util.stream.Stream;
 
 import static java.util.logging.Level.SEVERE;
 
+@Component
 public class PersonsDatabaseMock implements ReadableStorage<PersonDTO> {
 
     private static final Logger LOGGER = Logger.getLogger(PersonsDatabaseMock.class.getName());

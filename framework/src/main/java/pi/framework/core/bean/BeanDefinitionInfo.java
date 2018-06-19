@@ -10,6 +10,7 @@ public class BeanDefinitionInfo {
     private Object instance;
     private String name;
     private BeanScope scope = SINGLETON;
+    private boolean isEveryComponentInjected;
 
     public String getName() {
         return name;
@@ -43,6 +44,14 @@ public class BeanDefinitionInfo {
         this.scope = scope;
     }
 
+    public boolean isEveryComponentInjected() {
+        return isEveryComponentInjected;
+    }
+
+    public void setEveryComponentInjected(boolean everyComponentInjected) {
+        isEveryComponentInjected = everyComponentInjected;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -55,11 +64,12 @@ public class BeanDefinitionInfo {
         return Objects.equals(clazz, that.clazz) &&
                 Objects.equals(instance, that.instance) &&
                 Objects.equals(name, that.name) &&
+                isEveryComponentInjected == that.isEveryComponentInjected &&
                 scope == that.scope;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clazz, instance, name, scope);
+        return Objects.hash(clazz, instance, name, scope, isEveryComponentInjected);
     }
 }
